@@ -2,199 +2,568 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>10月城代高校过程考核看板</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#eef2f7;color:#1e293b;font-family:"Microsoft YaHei","PingFang SC",-apple-system,sans-serif;padding:22px 18px 40px}
-.page{max-width:1120px;margin:0 auto}
-.hd{background:linear-gradient(120deg,#0f766e,#115e59);border-radius:14px;padding:20px 24px;color:#fff;box-shadow:0 6px 18px rgba(15,118,110,.22)}
-.hd h1{font-size:25px;font-weight:800;letter-spacing:.5px}
-.hd .sub{margin-top:7px;font-size:12.5px;opacity:.92}
-.hd .sub b{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:20px;margin-right:8px;font-weight:600}
-.sec{margin-top:22px}
-.sec-t{font-size:15px;font-weight:800;color:#0f766e;padding-left:11px;border-left:4px solid #0f766e;margin-bottom:11px;line-height:1.1}
-.sec-t span{font-weight:500;color:#94a3b8;font-size:11.5px;margin-left:8px}
-.rules{display:grid;grid-template-columns:1.25fr 1.15fr 1fr;gap:12px}
-.rule{background:#fff;border-radius:12px;padding:14px 15px;box-shadow:0 2px 10px rgba(15,23,42,.06);border:1px solid #e6ecf3}
-.rule-h{font-size:13.5px;font-weight:800;margin-bottom:7px}
-.rule-b{font-size:11.5px;color:#475569;line-height:1.6;margin-bottom:8px}
-.rule-f{font-size:10.5px;color:#94a3b8;line-height:1.6;margin-top:8px;border-top:1px dashed #e2e8f0;padding-top:7px}
-.rt{width:100%;border-collapse:collapse;font-size:11.5px}
-.rt td{padding:3.5px 4px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
-.rt .rw{text-align:right;font-weight:700;white-space:nowrap}
-.rt .rg{color:#64748b;font-size:10.5px;text-align:right}
-.rt .seg{color:#64748b;font-size:10.5px}
-.rt .vt{vertical-align:middle;color:#1e293b;font-weight:700;font-size:11px;text-align:center;border-right:1px solid #f1f5f9;border-bottom:1px solid #f1f5f9}
-.rule-warn{display:flex;flex-direction:column;gap:7px}
-.warn-line{font-size:11.5px;color:#334155;display:flex;gap:6px;align-items:flex-start;line-height:1.5}
-.warn-tag{flex:0 0 56px;text-align:center;font-size:10.5px;font-weight:700;color:#b91c1c;background:#fee2e2;border-radius:5px;padding:1px 0}
-.warn-tag.ok{color:#15803d;background:#dcfce7}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ccard{background:#fff;border-radius:14px;padding:16px 18px 14px;box-shadow:0 3px 14px rgba(15,23,42,.07);border:1px solid #e6ecf3}
-.cc-head{display:flex;justify-content:space-between;align-items:center}
-.cc-name{font-size:17px;font-weight:800;color:#0f172a}
-.cc-meta{font-size:11px;color:#94a3b8;margin-left:9px}
-.cc-tier{font-size:11px;font-weight:700;padding:2.5px 10px;border-radius:20px}
-.cc-score-row{display:flex;align-items:flex-end;justify-content:space-between;margin-top:10px;gap:12px}
-.cc-score{font-size:42px;font-weight:800;line-height:1;letter-spacing:-1px}
-.cc-unit{font-size:13px;font-weight:600;margin-left:3px;color:#94a3b8}
-.cc-side{text-align:right;font-size:11.5px;line-height:1.65}
-.kv{color:#64748b}
-.kv b{color:#1e293b;margin-left:5px}
-.cc-bar{position:relative;height:9px;background:#eef2f7;border-radius:6px;margin-top:12px;overflow:visible}
-.cc-bar i{display:block;height:100%;border-radius:6px}
-.cc-bar u{position:absolute;top:-3px;width:2px;height:15px;background:#ef4444;border-radius:2px}
-.cc-gap-note{font-size:11px;color:#64748b;margin-top:8px}
-.gap-list{margin-top:9px;border-top:1px dashed #e8eef5;padding-top:8px;display:flex;flex-direction:column;gap:5px}
-.gap-row{display:flex;align-items:center;font-size:11.5px;gap:8px}
-.gap-name{font-weight:700;flex:0 0 128px}
-.gap-mid{color:#64748b;flex:1}
-.gap-loss{color:#b91c1c;font-weight:600;white-space:nowrap}
-.gap-loss b{font-size:13px}
-.panel{background:#fff;border-radius:12px;padding:16px 18px;box-shadow:0 2px 10px rgba(15,23,42,.06);border:1px solid #e6ecf3}
-table.dt{width:100%;border-collapse:collapse;font-size:12px}
-table.dt th{background:#f1f5f9;color:#475569;font-weight:700;font-size:11.5px;padding:7px 5px;border-bottom:1px solid #e2e8f0;white-space:nowrap}
-table.dt th.city-th{background:#0f766e;color:#fff;font-size:12.5px;letter-spacing:.5px}
-table.dt tr.h2 th{background:#f8fafc;font-size:11px;color:#94a3b8;padding:4px 5px}
-table.dt td{padding:7px 5px;border-bottom:1px solid #f1f5f9;text-align:center;white-space:nowrap}
-table.dt td.fix{text-align:left;font-weight:700;color:#334155;padding-left:10px}
-table.dt td.fix2{text-align:left;color:#1e293b}
-td.wcol{color:#64748b;font-weight:600}
-table.dt td.dim{color:#94a3b8}
-table.dt tr.total-row td{background:#f8fafc;border-top:2px solid #cbd5e1;font-weight:700}
-table.dt tr.total-row2 td{background:#f8fafc;border-bottom:1px solid #e2e8f0;font-size:11.5px}
-.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
-.trend-wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:14px}
-table.tt{width:100%;border-collapse:collapse;font-size:12px}
-table.tt th{background:#f1f5f9;color:#475569;font-size:11.5px;padding:7px 6px;border-bottom:1px solid #e2e8f0}
-table.tt td{padding:8px 6px;border-bottom:1px solid #f1f5f9;text-align:center}
-table.tt td.citycell{text-align:left;font-weight:700;color:#0f172a;padding-left:10px}
-table.tt .num b{font-size:15px}
-table.tt .sub{display:block;font-size:10px;color:#94a3b8;margin-top:2px}
-.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#64748b;margin-top:11px;padding-top:10px;border-top:1px dashed #e8eef5}
-.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
-.foot{margin-top:20px;font-size:11px;color:#94a3b8;text-align:center;line-height:1.8}
-@media(max-width:900px){.rules,.cards,.trend-wrap{grid-template-columns:1fr}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Microsoft YaHei",sans-serif;background:#f0f2f5;color:#333;font-size:13px}
+.header{background:linear-gradient(135deg,#0b4f4a 0%,#0f766e 100%);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:19px;font-weight:600}
+.header .subtitle{font-size:12px;opacity:.85;margin-top:3px}
+.update-time{font-size:12px;opacity:.85}
+.main{padding:16px;max-width:1520px;margin:0 auto}
+.page-tabs{display:flex;margin-bottom:16px;border-bottom:2px solid #e5e7eb}
+.page-tab{padding:10px 26px;font-size:14px;font-weight:600;cursor:pointer;background:none;border:none;color:#666;border-bottom:3px solid transparent;margin-bottom:-2px}
+.page-tab.active{color:#0f766e;border-bottom-color:#0f766e}
+.stats-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.stat-card{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #ccc}
+.stat-card .sc-label{font-size:11px;color:#888;margin-bottom:5px}
+.stat-card .sc-value{font-size:21px;font-weight:700}
+.stat-card .sc-detail{font-size:11px;color:#777;margin-top:5px;line-height:1.6}
+.summary-section-title{font-size:15px;font-weight:700;color:#333;margin:6px 0 10px;padding-bottom:6px;border-bottom:2px solid #0f766e}
+.section-divider{height:1px;background:linear-gradient(to right,#0f766e,#ddd);margin:16px 0 14px}
+.cst-wrap{background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:auto}
+.cst-table{width:100%;border-collapse:collapse;font-size:12px}
+.cst-table thead th{background:#3b4754;color:#fff;padding:8px 10px;font-weight:600;text-align:center;white-space:nowrap}
+.cst-table thead th:first-child{text-align:left;min-width:118px}
+.cst-table tbody td{padding:7px 10px;text-align:center;border-bottom:1px solid #f0f0f0;white-space:nowrap}
+.cst-table tbody td:first-child{text-align:left;font-weight:700;font-size:13px}
+.cst-table tbody tr:hover{background:#f7f9fc}
+.cst-tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600;color:#fff}
+.cst-tag.pos{background:#16a34a}.cst-tag.neg{background:#dc2626}
+.cst-tag.zero{background:#9ca3af}.cst-tag.warn{background:#f59e0b}.cst-tag.severe{background:#b91c1c}
+.city-trend-block{background:#fff;border-radius:8px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden;border:1px solid #e8ecf0}
+.city-trend-header{padding:10px 16px;font-size:14px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:space-between}
+.city-trend-header .cth-status{font-size:11px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.25);color:#fff;font-weight:600;margin-left:6px}
+.flat-section{background:#fff;border-radius:8px;margin-bottom:6px;box-shadow:0 1px 2px rgba(0,0,0,.04);overflow-x:auto}
+.metric-table{width:100%;border-collapse:collapse;font-size:12px}
+.metric-table th{background:#f8f9fa;padding:7px 8px;text-align:center;font-weight:600;color:#666;border-bottom:1px solid #eee;white-space:nowrap;position:sticky;top:0}
+.metric-table th.metric-name{text-align:left;min-width:210px}
+.metric-table td{padding:5px 8px;text-align:center;border-bottom:1px solid #f0f0f0;white-space:nowrap}
+.metric-table td.metric-name{text-align:left;font-weight:500;color:#444}
+.metric-cell{min-width:78px;font-variant-numeric:tabular-nums;border-radius:3px}
+.metric-row:hover{background:#fafbff}
+.trend-tree .tt-l1 td{background:#e9eff9;font-weight:800;color:#1b2a41;cursor:pointer;border-bottom:1px solid #d5deec}
+.trend-tree .tt-l1:hover td{background:#dde7f6}
+.trend-tree .tt-l1 .metric-name{font-size:13px;padding-top:7px;padding-bottom:7px}
+.tt-caret{display:inline-block;width:14px;color:#0f766e;font-weight:800}
+.tt-caret.sp{width:14px}
+.tt-meta{font-size:11px;font-weight:600;color:#5b6b7c;margin-left:10px}
+.trend-tree .tt-l2 td{background:#f4f7fb;font-weight:700;color:#37474f;border-bottom:1px solid #e6ecf3}
+.trend-tree .tt-l2 .metric-name{padding-left:26px}
+.trend-tree .tt-l3 .metric-name{padding-left:46px;color:#555;font-weight:500}
+.trend-tree .tt-l3 .metric-name.tt-bold{font-weight:800;color:#1b2a41}
+.trend-tree .tt-l3 td{border-bottom:1px solid #f4f6f8}
+.trend-tree .tt-l1 td.metric-cell{font-size:12.5px;font-weight:800}
+.trend-tree .tt-l1.tt-flat td{background:#f2f6fc;font-weight:700;color:#334155;cursor:default;border-bottom:1px solid #e5ebf5}
+.trend-tree .tt-l1.tt-flat .metric-name{font-size:12.5px;padding-top:6px;padding-bottom:6px}
+.trend-tree .tt-l1.tt-flat td.metric-cell{font-weight:700}
+.color-legend{display:flex;align-items:center;flex-wrap:wrap;gap:10px;background:#fbfcfd;border:1px solid #e3e8ee;border-radius:8px;padding:8px 12px;margin:0 0 12px;font-size:12px;color:#4b5563}
+.cl-item{display:inline-flex;align-items:center;gap:5px}
+.cl-item i{display:inline-block;width:16px;height:12px;border-radius:3px;border:1px solid rgba(0,0,0,.06)}
+.cl-note{color:#6b7280;font-size:11.5px}
+.trend-tools{display:flex;gap:8px;margin-bottom:8px}
+.trend-tools button{font-size:12px;padding:3px 10px;border:1px solid #cfd8e3;background:#fff;border-radius:6px;color:#37474f;cursor:pointer}
+.trend-tools button:hover{background:#f1f5fa}
+.controls-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.controls-row label{font-size:13px;font-weight:600;color:#555}
+.controls-row select{padding:6px 12px;border-radius:6px;border:1px solid #d0d5dd;font-size:13px;cursor:pointer;min-width:150px;background:#fff}
+.analysis-panel{background:#fff;border-radius:10px;padding:16px 20px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid #e8ecf0}
+.analysis-panel .ap-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.analysis-panel .ap-status{font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;color:#fff}
+.ap-status.neg{background:#dc2626}.ap-status.zero{background:#6b7280}.ap-status.pos{background:#16a34a}
+.analysis-panel .ap-title{font-size:14px;font-weight:600}
+.ap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:6px 18px;align-items:start}
+.ap-section-title{font-size:11px;font-weight:700;color:#8a94a6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.ap-item{font-size:12px;color:#444;line-height:1.75;padding-left:8px;border-left:2px solid #e5e7eb;margin-bottom:4px}
+.ap-item.highlight{border-left-color:#dc2626;font-weight:500}
+.ap-item.good{border-left-color:#16a34a}
+.ap-item.trend{border-left-color:#f59e0b}
+.inc-parts{margin-top:10px;padding:9px 12px;background:#f0fdfa;border-radius:6px;border-left:3px solid #0f766e;font-size:12px;color:#115e59;line-height:1.8}
+.note-bar{background:#fff8e6;border:1px solid #f5d98b;border-left:4px solid #f0a800;border-radius:8px;padding:10px 14px;font-size:12.5px;line-height:1.75;color:#7a5a00;margin-bottom:14px}
+.sim-panel{background:white;border-radius:10px;padding:20px 24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);border:1px solid #e8ecf0;margin-top:14px}
+.sim-snapshot{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #eee}
+.sim-snap-item{text-align:center}
+.sim-snap-item .ss-label{font-size:11px;color:#888;margin-bottom:2px}
+.sim-snap-item .ss-value{font-size:17px;font-weight:700;color:#333}
+.sim-snap-item .ss-value.pos{color:#16a34a}
+.sim-snap-item .ss-value.neg{color:#dc2626}
+.sim-snap-item .ss-sub{font-size:11px;color:#5b6b7c;margin-top:3px;line-height:1.5}
+.sim-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sim-group-title{font-size:12px;font-weight:600;color:#555;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #f0f0f0}
+.sim-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.sim-row label{font-size:12px;color:#666;min-width:150px}
+.sim-row .sim-current{font-size:11px;color:#999;white-space:nowrap}
+.sim-row .sim-slider{flex:1;min-width:80px}
+.sim-row input[type=number]{width:70px;padding:4px 6px;border:1px solid #d0d5dd;border-radius:4px;font-size:13px;text-align:center}
+.reason-table{border:1px solid #eef0f2;border-radius:6px;overflow:hidden}
+.reason-row{display:flex;gap:8px;padding:6px 10px;font-size:12px;border-bottom:1px solid #f4f6f8;align-items:baseline}
+.reason-row:last-child{border-bottom:none}
+.reason-row .rs-name{font-weight:600;color:#334;min-width:150px}
+.reason-row .rs-val{color:#1d4ed8;font-weight:600;min-width:80px}
+.reason-row .rs-why{color:#889;font-size:11.5px}
+.sim-result{margin-top:18px;padding:16px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0}
+.sim-result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sim-result-item{text-align:center}
+.sim-result-item .sr-label{font-size:11px;color:#888}
+.sim-result-item .sr-value{font-size:21px;font-weight:700;color:#333}
+.sim-result-item .sr-sub{font-size:11px;color:#999}
+.sim-result-item .sr-delta{font-size:12px;font-weight:600}
+.sim-result-item .sr-delta.up{color:#16a34a}
+.sim-result-item .sr-delta.down{color:#dc2626}
+.sim-verdict{margin-top:12px;padding:9px 12px;border-radius:8px;font-size:12.5px;line-height:1.6;background:#f8fafc;border:1px solid #eef0f2;color:#475569}
+.sim-verdict.pos{background:#f0fdf4;border-color:#bbf7d0;color:#15803d}
+.sim-verdict.neg{background:#fef2f2;border-color:#fecaca;color:#b91c1c}
+.sim-verdict .vd-tag{display:inline-block;font-weight:700;padding:1px 8px;border-radius:10px;margin-right:6px;font-size:12px;background:#e5e7eb;color:#374151}
+.sim-verdict.pos .vd-tag{background:#16a34a;color:#fff}
+.sim-verdict.neg .vd-tag{background:#dc2626;color:#fff}
+@media(max-width:1200px){.stats-cards{grid-template-columns:repeat(3,1fr)}.ap-grid{grid-template-columns:1fr}.sim-form{grid-template-columns:1fr}.sim-result-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
-<div class="page">
-
-  <div class="hd">
-    <h1>10月城代高校过程考核看板</h1>
-    <div class="sub">
-      <b>数据截至 2026-10-12</b>
-      口径：高校重点区县 · 高校过程结果（2610 起方案）　｜　已过 12 天 / 月天数 31
-    </div>
+<div class="header">
+  <div>
+    <h1 id="pgTitle"></h1>
+    <div class="subtitle" id="pgSub"></div>
+  </div>
+  <div class="controls" style="text-align:right">
+    <div class="update-time" id="pgUpd"></div>
+  </div>
+</div>
+<div class="main">
+  <div class="page-tabs">
+    <button class="page-tab active" id="pageTab1" onclick="switchPage(1)">高校汇总</button>
+    <button class="page-tab" id="pageTab2" onclick="switchPage(2)">分城市概览</button>
   </div>
 
-  <div class="sec">
-    <div class="sec-t">一、本月考核规则 <span>摘自《10月城代月度考核方案》高校部分</span></div>
-    <div class="rules">
-<div class="rule">
-  <div class="rule-h" style="color:#4f46e5">考核对象与权重</div>
-  <div class="rule-b">高校重点区县（本次：武陵区、衡阳合并经营），得分 = Σ(细项得分 × 权重)</div>
-  <table class="rt">
-    <tr><td>经营权订单占比</td><td class="rw" style="color:#4f46e5">40%</td><td class="rg">验真经营权订单 / 区县高校订单</td></tr>
-    <tr><td>学生立减招商达成率</td><td class="rw" style="color:#c2410c">20%</td><td class="rg">学生立减报名商户数 / 商户池总数</td></tr>
-    <tr><td>送餐上楼订单渗透率</td><td class="rw" style="color:#0f766e">20%</td><td class="rg">送餐上楼订单数 / 校区订单总数</td></tr>
-    <tr><td>校园送妥投率</td><td class="rw" style="color:#0f766e">10%</td><td class="rg">校园送完单数 / 校园送推单数</td></tr>
-    <tr><td>校园送新用户绝对准时率</td><td class="rw" style="color:#0f766e">10%</td><td class="rg">校园送用户 T 准时单数 / 校园送完单数</td></tr>
-  </table>
-  <div class="rule-f">某单项不考核时，其权重转移到「经营权订单占比」；月累计值口径，得分区间 [0,120]</div>
+  <div id="page1">
+    <div class="stats-cards" id="statsCards"></div>
+    <div class="section-divider"></div>
+    <div class="summary-section-title" id="overviewTitle"></div>
+    <div id="citySummaryTable"></div>
+    <div class="section-divider"></div>
+    <div class="summary-section-title">各板块指标达成明细<span style="font-size:12px;font-weight:400;color:#888;margin-left:10px" id="groupTableDate"></span></div>
+    <div style="margin:8px 0 10px">
+      <button class="page-tab active" id="gTabBiz" onclick="switchGroup('biz')">经营权</button>
+      <button class="page-tab" id="gTabMkt" onclick="switchGroup('mkt')">营销</button>
+      <button class="page-tab" id="gTabLogi" onclick="switchGroup('logi')">物流</button>
+    </div>
+    <div id="groupTableWrap"></div>
+    <div class="section-divider"></div>
+    <div class="summary-section-title">所有城市日维度趋势汇总<span style="font-size:12px;font-weight:400;color:#888;margin-left:10px">三层结构：考核板块 › 考核指标 › 指标明细</span></div>
+    <div class="color-legend">
+      <span class="cl-item"><i style="background:#5fc97a"></i>最优 / 满档</span>
+      <span class="cl-item"><i style="background:#c6efce"></i>达标</span>
+      <span class="cl-item"><i style="background:#ffeb9c"></i>一般</span>
+      <span class="cl-item"><i style="background:#ffcb8f"></i>偏弱</span>
+      <span class="cl-item"><i style="background:#ff9d8f"></i>差</span>
+      <span class="cl-item"><i style="background:#ff7b6b"></i>最差</span>
+      <span class="cl-item"><b style="color:#111">加粗</b> = 达/超达标线</span>
+      <span class="cl-note">得分类：105（妥投满档）绿最深 / ≥100 达标绿 / 90~100 黄 / 70~90 偏橙 / &lt;50 红；完成率类：≥100 绿 / 90~100 黄 / 70~90 偏橙 / &lt;50 红；排名类：前20%绿 / 20~50% 浅绿 / 50~70% 黄 / 70~85% 偏橙 / &gt;95% 红加粗（末尾10%即警告区）</span>
+    </div>
+    <div class="trend-tools">
+      <button onclick="expandAllTrend(false)">全部展开</button>
+      <button onclick="expandAllTrend(true)">全部收起</button>
+    </div>
+    <div class="note-bar">口径：日维度按「数据日期」逐日快照，最新日期在最左列。高校过程考核<b>仅高校重点区县参与</b>（本次为武陵区、衡阳合并经营）；得分 = Σ(细项得分 × 权重)，前 3 项 = 完成率×100（封顶120），妥投率按 97.5/98.2/98.5% 阶梯赋分 80/90/100/105，准时率按 90/92% 阶梯赋分 80/90/100；<b>高校警告</b> = 组内排名末尾 10%（含），过程得分 ≥100 可豁免。衡阳合并经营行已按 4 区县归一（÷4）还原可比口径。源报表未留底日期：10/11（70633 数据集仅回溯最近 2 天，日趋势需每日留底）。</div>
+    <div id="allCitiesTrend"></div>
+  </div>
+
+  <div id="page2" style="display:none">
+    <div class="controls-row">
+      <label>选择城市:</label>
+      <select id="citySelect" onchange="switchCity()"></select>
+      <span id="citySectionTitle" style="font-size:13px;font-weight:600;color:#666"></span>
+      <button class="page-tab active" id="cityTabD" onclick="switchCityMode('d')">达成看板</button>
+      <button class="page-tab" id="cityTabS" onclick="switchCityMode('s')">得分测算</button>
+      <span style="flex:1"></span>
+    </div>
+    <div id="cityDetailWrap">
+      <div class="analysis-panel" id="analysisPanel"></div>
+      <div id="metricTree"></div>
+    </div>
+    <div class="sim-panel" id="simPanel" style="display:none"></div>
+  </div>
 </div>
 
-<div class="rule">
-  <div class="rule-h" style="color:#c2410c">赋分规则（两项物流为阶梯赋分）</div>
-  <div class="rule-b">前 3 项：完成率 × 100（封顶 120）</div>
-  <table class="rt">
-    <tr><td rowspan="4" class="vt">校园送<br>妥投率</td><td class="seg">&lt; 97.5%</td><td class="rw">80 分</td></tr>
-    <tr><td class="seg">97.5% ~ 98.2%</td><td class="rw">90 分</td></tr>
-    <tr><td class="seg">98.2% ~ 98.5%</td><td class="rw">100 分</td></tr>
-    <tr><td class="seg">≥ 98.5%</td><td class="rw" style="color:#15803d">105 分</td></tr>
-    <tr><td rowspan="3" class="vt">校园送<br>准时率</td><td class="seg">&lt; 90%</td><td class="rw">80 分</td></tr>
-    <tr><td class="seg">90% ~ 92%</td><td class="rw">90 分</td></tr>
-    <tr><td class="seg">≥ 92%</td><td class="rw" style="color:#15803d">100 分</td></tr>
-  </table>
-</div>
+<script>
+const D = {"title": "10月城代高校过程考核看板", "period": "2026-10-01 ~ 2026-10-31（2610 起考核方案）", "updateDate": "2026-10-12", "dateLabels": ["10/12", "10/10", "10/9"], "dispIdx": [0, 1, 2], "cities": ["武陵区", "衡阳合并经营"], "colors": {"总览": "#1a237e", "经营权": "#4472C4", "营销": "#ED7D31", "物流": "#70AD47"}, "formatted": {"武陵区": {"hs_score": {"values": ["75.08", "67.94", "65.86"], "colors": ["#ffcb8f", "#ff9d8f", "#ff9d8f"], "bolds": [false, false, false], "raw": [75.0794, 67.94135195102817, 65.85858630721492]}, "hs_rank": {"values": ["75.76%", "75.76%", "78.79%"], "colors": ["#ffcb8f", "#ffcb8f", "#ffcb8f"], "bolds": [false, false, false], "raw": [75.76, 75.7576, 78.7879]}, "hs_order": {"values": ["26", "26", "27"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [26.0, 26.0, 27.0]}, "hs_gap": {"values": ["24.9", "32.1", "34.1"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [24.920599999999993, 32.05864804897183, 34.14141369278508]}, "hs_warn": {"values": ["无", "无", "无"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": ["无", "无", "无"]}, "b1_ach": {"values": ["83.73%", "73.93%", "74.79%"], "colors": ["#ffcb8f", "#ffcb8f", "#ffcb8f"], "bolds": [false, false, false], "raw": [83.73, 73.9283, 74.7897]}, "b1_tgt": {"values": ["85.86%", "85.86%", "85.86%"], "colors": ["#ffcb8f", "#ffcb8f", "#ffcb8f"], "bolds": [false, false, false], "raw": [85.86, 85.86, 85.86]}, "b1_rate": {"values": ["97.52%", "86.10%", "87.11%"], "colors": ["#ffeb9c", "#ffcb8f", "#ffcb8f"], "bolds": [false, false, false], "raw": [97.52, 86.1033, 87.1066]}, "b1_wt": {"values": ["40%", "40%", "40%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [40.0, 40.0, 40.0]}, "b1_score": {"values": ["97.52", "86.10", "87.11"], "colors": ["#ffeb9c", "#ffcb8f", "#ffcb8f"], "bolds": [false, false, false], "raw": [97.523, 86.10327158150643, 87.1065614570251]}, "b2_ach": {"values": ["16.20%", "12.29%", "8.46%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [16.2, 12.2879, 8.4594]}, "b2_tgt": {"values": ["30.00%", "30.00%", "30.00%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [30.0, 30.0, 30.0]}, "b2_rate": {"values": ["54.01%", "40.96%", "28.20%"], "colors": ["#ff9d8f", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [54.01, 40.9598, 28.1981]}, "b2_wt": {"values": ["20%", "20%", "20%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [20.0, 20.0, 20.0]}, "b2_score": {"values": ["54.01", "40.96", "28.20"], "colors": ["#ff9d8f", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [54.0119, 40.9598043710836, 28.198074277854197]}, "b3a_ach": {"values": ["1.70%", "1.72%", "1.74%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [1.7, 1.7189, 1.7433]}, "b3a_tgt": {"values": ["7.15%", "7.15%", "7.15%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [7.15, 7.15, 7.15]}, "b3a_rate": {"values": ["23.84%", "24.04%", "24.38%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [23.84, 24.0404, 24.3817]}, "b3a_wt": {"values": ["20%", "20%", "20%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [20.0, 20.0, 20.0]}, "b3a_score": {"values": ["23.84", "24.04", "24.38"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [23.8389, 24.04041222104439, 24.381734344170198]}, "b3b_ach": {"values": ["98.51%", "98.56%", "98.59%"], "colors": ["#ffeb9c", "#ffeb9c", "#ffeb9c"], "bolds": [false, false, false], "raw": [98.51, 98.5559, 98.5945]}, "b3b_tgt": {"values": ["100.00%", "100.00%", "98.50%"], "colors": ["#c6efce", "#c6efce", "#ffeb9c"], "bolds": [true, true, false], "raw": [100.0, 100.0, 98.5]}, "b3b_rate": {"values": ["98.51%", "98.56%", "100.10%"], "colors": ["#ffeb9c", "#ffeb9c", "#c6efce"], "bolds": [false, false, true], "raw": [98.51, 98.5559, 100.0959]}, "b3b_wt": {"values": ["10%", "10%", "10%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [10.0, 10.0, 10.0]}, "b3b_score": {"values": ["105.00", "105.00", "105.00"], "colors": ["#5fc97a", "#5fc97a", "#5fc97a"], "bolds": [true, true, true], "raw": [105.0, 105.0, 105.0]}, "b3c_ach": {"values": ["95.59%", "95.43%", "94.87%"], "colors": ["#ffeb9c", "#ffeb9c", "#ffeb9c"], "bolds": [false, false, false], "raw": [95.59, 95.4307, 94.8711]}, "b3c_tgt": {"values": ["100.00%", "100.00%", "92.00%"], "colors": ["#c6efce", "#c6efce", "#ffeb9c"], "bolds": [true, true, false], "raw": [100.0, 100.0, 92.0]}, "b3c_rate": {"values": ["95.59%", "95.43%", "103.12%"], "colors": ["#ffeb9c", "#ffeb9c", "#c6efce"], "bolds": [false, false, true], "raw": [95.59, 95.4307, 103.1208]}, "b3c_wt": {"values": ["10%", "10%", "10%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [10.0, 10.0, 10.0]}, "b3c_score": {"values": ["100.00", "100.00", "100.00"], "colors": ["#c6efce", "#c6efce", "#c6efce"], "bolds": [true, true, true], "raw": [100.0, 100.0, 100.0]}, "b_wl": {"values": ["63.17", "63.27", "63.44"], "colors": ["#ff9d8f", "#ff9d8f", "#ff9d8f"], "bolds": [false, false, false], "raw": [63.169450000000005, 63.27020611052219, 63.4408671720851]}}, "衡阳合并经营": {"hs_score": {"values": ["70.90", "68.81", "66.50"], "colors": ["#ffcb8f", "#ff9d8f", "#ff9d8f"], "bolds": [false, false, false], "raw": [70.9023, 68.81237101829117, 66.50081109569481]}, "hs_rank": {"values": ["72.22%", "72.22%", "69.44%"], "colors": ["#ffcb8f", "#ffcb8f", "#ffeb9c"], "bolds": [false, false, false], "raw": [72.22, 72.2222, 69.4444]}, "hs_order": {"values": ["27", "27", "26"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [27.0, 27.0, 26.0]}, "hs_gap": {"values": ["29.1", "31.2", "33.5"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [29.097700000000003, 31.187628981708826, 33.499188904305186]}, "hs_warn": {"values": ["无", "无", "无"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": ["无", "无", "无"]}, "b1_ach": {"values": ["52.69%", "52.51%", "52.13%"], "colors": ["#ff9d8f", "#ff9d8f", "#ff9d8f"], "bolds": [false, false, false], "raw": [52.69, 52.5069, 52.1315]}, "b1_tgt": {"values": ["57.32%", "57.32%", "57.32%"], "colors": ["#ff9d8f", "#ff9d8f", "#ff9d8f"], "bolds": [false, false, false], "raw": [57.32, 57.32, 57.32]}, "b1_rate": {"values": ["91.93%", "91.60%", "90.95%"], "colors": ["#ffeb9c", "#ffeb9c", "#ffeb9c"], "bolds": [false, false, false], "raw": [91.93, 91.6031, 90.9481]}, "b1_wt": {"values": ["40%", "40%", "40%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [40.0, 40.0, 40.0]}, "b1_score": {"values": ["91.93", "91.60", "90.95"], "colors": ["#ffeb9c", "#ffeb9c", "#ffeb9c"], "bolds": [false, false, false], "raw": [91.9308, 91.60307102779254, 90.94813894488523]}, "b2_ach": {"values": ["13.72%", "11.50%", "9.00%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [13.72, 11.5041, 9.0032]}, "b2_tgt": {"values": ["30.00%", "30.00%", "30.00%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [30.0, 30.0, 30.0]}, "b2_rate": {"values": ["45.73%", "38.35%", "30.01%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [45.73, 38.347, 30.0107]}, "b2_wt": {"values": ["20%", "20%", "20%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [20.0, 20.0, 20.0]}, "b2_score": {"values": ["45.73", "38.35", "30.01"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [45.7306, 38.34702870072645, 30.010718113612008]}, "b3a_ach": {"values": ["1.84%", "1.64%", "1.49%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [1.84, 1.6427, 1.4858]}, "b3a_tgt": {"values": ["8.21%", "8.21%", "8.21%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [8.21, 8.21, 8.21]}, "b3a_rate": {"values": ["22.42%", "20.01%", "18.10%"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [22.42, 20.0087, 18.0971]}, "b3a_wt": {"values": ["20%", "20%", "20%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [20.0, 20.0, 20.0]}, "b3a_score": {"values": ["22.42", "20.01", "18.10"], "colors": ["#ff7b6b", "#ff7b6b", "#ff7b6b"], "bolds": [false, false, false], "raw": [22.4194, 20.008684335144423, 18.097059475091633]}, "b3b_ach": {"values": ["98.90%", "98.89%", "98.94%"], "colors": ["#ffeb9c", "#ffeb9c", "#ffeb9c"], "bolds": [false, false, false], "raw": [98.9, 98.8923, 98.9434]}, "b3b_tgt": {"values": ["100.00%", "100.00%", "98.50%"], "colors": ["#c6efce", "#c6efce", "#ffeb9c"], "bolds": [true, true, false], "raw": [100.0, 100.0, 98.5]}, "b3b_rate": {"values": ["98.90%", "98.89%", "100.45%"], "colors": ["#ffeb9c", "#ffeb9c", "#c6efce"], "bolds": [false, false, true], "raw": [98.9, 98.8923, 100.4501]}, "b3b_wt": {"values": ["10%", "10%", "10%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [10.0, 10.0, 10.0]}, "b3b_score": {"values": ["105.00", "105.00", "105.00"], "colors": ["#5fc97a", "#5fc97a", "#5fc97a"], "bolds": [true, true, true], "raw": [105.0, 105.0, 105.0]}, "b3c_ach": {"values": ["95.42%", "95.55%", "95.70%"], "colors": ["#ffeb9c", "#ffeb9c", "#ffeb9c"], "bolds": [false, false, false], "raw": [95.42, 95.5547, 95.6995]}, "b3c_tgt": {"values": ["100.00%", "100.00%", "92.00%"], "colors": ["#c6efce", "#c6efce", "#ffeb9c"], "bolds": [true, true, false], "raw": [100.0, 100.0, 92.0]}, "b3c_rate": {"values": ["95.42%", "95.55%", "104.02%"], "colors": ["#ffeb9c", "#ffeb9c", "#c6efce"], "bolds": [false, false, true], "raw": [95.42, 95.5547, 104.0212]}, "b3c_wt": {"values": ["10%", "10%", "10%"], "colors": ["#f8f9fa", "#f8f9fa", "#f8f9fa"], "bolds": [false, false, false], "raw": [10.0, 10.0, 10.0]}, "b3c_score": {"values": ["100.00", "100.00", "100.00"], "colors": ["#c6efce", "#c6efce", "#c6efce"], "bolds": [true, true, true], "raw": [100.0, 100.0, 100.0]}, "b_wl": {"values": ["62.46", "61.25", "60.30"], "colors": ["#ff9d8f", "#ff9d8f", "#ff9d8f"], "bolds": [false, false, false], "raw": [62.4597, 61.25434216757221, 60.29852973754582]}}}, "trendTree": [{"name": "高校过程考核总览", "grp": "总览", "score": "hs_score", "groups": [], "flats": [{"name": "组内排名", "score": "hs_rank"}, {"name": "距达标缺口(100分)", "score": "hs_gap"}, {"name": "高校警告", "score": "hs_warn"}]}, {"name": "一、经营权订单占比（权重 40%）", "grp": "经营权", "score": "b1_score", "groups": [{"name": "经营权订单占比", "score": "", "rows": [{"label": "达成值", "key": "b1_ach"}, {"label": "目标值", "key": "b1_tgt"}, {"label": "完成率", "key": "b1_rate"}, {"label": "权重", "key": "b1_wt"}, {"label": "得分", "key": "b1_score", "bold": true}]}], "flats": []}, {"name": "二、学生立减招商（权重 20%）", "grp": "营销", "score": "b2_score", "groups": [{"name": "学生立减招商达成率", "score": "", "rows": [{"label": "达成值", "key": "b2_ach"}, {"label": "目标值", "key": "b2_tgt"}, {"label": "完成率", "key": "b2_rate"}, {"label": "权重", "key": "b2_wt"}, {"label": "得分", "key": "b2_score", "bold": true}]}], "flats": []}, {"name": "三、物流质量（权重 40%）", "grp": "物流", "score": "b_wl", "groups": [{"name": "送餐上楼订单渗透率（20%）", "score": "b3a_score", "rows": [{"label": "达成值", "key": "b3a_ach"}, {"label": "目标值", "key": "b3a_tgt"}, {"label": "完成率", "key": "b3a_rate"}, {"label": "权重", "key": "b3a_wt"}, {"label": "得分", "key": "b3a_score", "bold": true}]}, {"name": "校园送妥投率（10%）", "score": "b3b_score", "rows": [{"label": "达成值", "key": "b3b_ach"}, {"label": "目标值", "key": "b3b_tgt"}, {"label": "完成率", "key": "b3b_rate"}, {"label": "权重", "key": "b3b_wt"}, {"label": "得分", "key": "b3b_score", "bold": true}]}, {"name": "校园送新用户绝对准时率（10%）", "score": "b3c_score", "rows": [{"label": "达成值", "key": "b3c_ach"}, {"label": "目标值", "key": "b3c_tgt"}, {"label": "完成率", "key": "b3c_rate"}, {"label": "权重", "key": "b3c_wt"}, {"label": "得分", "key": "b3c_score", "bold": true}]}], "flats": []}], "groupTables": [{"id": "biz", "label": "经营权", "cols": [{"key": "b1_ach", "label": "达成值"}, {"key": "b1_tgt", "label": "目标值"}, {"key": "b1_rate", "label": "完成率"}, {"key": "b1_wt", "label": "权重"}, {"key": "b1_score", "label": "得分"}]}, {"id": "mkt", "label": "营销", "cols": [{"key": "b2_ach", "label": "达成值"}, {"key": "b2_tgt", "label": "目标值"}, {"key": "b2_rate", "label": "完成率"}, {"key": "b2_wt", "label": "权重"}, {"key": "b2_score", "label": "得分"}]}, {"id": "logi", "label": "物流", "cols": [{"key": "b3a_rate", "label": "送餐上楼·完成率"}, {"key": "b3a_score", "label": "送餐上楼·得分"}, {"key": "b3b_rate", "label": "妥投率·完成率"}, {"key": "b3b_score", "label": "妥投率·得分"}, {"key": "b3c_rate", "label": "准时率·完成率"}, {"key": "b3c_score", "label": "准时率·得分"}]}], "analysis": {"武陵区": {"status": "严重滞后", "score": 75.0794, "rank": 75.76, "order": 26.0, "gap": 24.920599999999993, "warn": "无", "warns": [], "weak": [{"name": "送餐上楼订单渗透率", "score": 23.84, "weight": 20.0, "potential": 15.23}, {"name": "学生立减招商达成率", "score": 54.01, "weight": 20.0, "potential": 9.2}, {"name": "经营权订单占比", "score": 97.52, "weight": 40.0, "potential": 0.99}], "behind": [{"name": "送餐上楼订单渗透率", "val": 23.84}, {"name": "学生立减招商达成率", "val": 54.01}], "trends": ["高校过程得分 +9.22 分（10/9 → 10/12）", "组内排名 -3.03 个百分点（78.79% → 75.76%）", "经营权订单占比 完成率 +10.41 个百分点", "学生立减招商达成率 完成率 +25.81 个百分点", "校园送妥投率 完成率 -1.59 个百分点", "校园送新用户绝对准时率 完成率 -7.53 个百分点"], "group": "ZA-2-GX", "tier": "均势", "parts": ["经营权订单占比 97.52 × 40% = 39.01", "学生立减招商达成率 54.01 × 20% = 10.80", "送餐上楼订单渗透率 23.84 × 20% = 4.77", "校园送妥投率 105.00 × 10% = 10.50", "校园送新用户绝对准时率 100.00 × 10% = 10.00", "合计 = <b>75.08 分</b>（源表高校过程得分 75.08）"], "rankGap": 14.239999999999995}, "衡阳合并经营": {"status": "严重滞后", "score": 70.9023, "rank": 72.22, "order": 27.0, "gap": 29.097700000000003, "warn": "无", "warns": [], "weak": [{"name": "送餐上楼订单渗透率", "score": 22.42, "weight": 20.0, "potential": 15.52}, {"name": "学生立减招商达成率", "score": 45.73, "weight": 20.0, "potential": 10.85}, {"name": "经营权订单占比", "score": 91.93, "weight": 40.0, "potential": 3.23}], "behind": [{"name": "送餐上楼订单渗透率", "val": 22.42}, {"name": "学生立减招商达成率", "val": 45.73}], "trends": ["高校过程得分 +4.40 分（10/9 → 10/12）", "组内排名 +2.78 个百分点（69.44% → 72.22%）", "学生立减招商达成率 完成率 +15.72 个百分点", "送餐上楼订单渗透率 完成率 +4.32 个百分点", "校园送妥投率 完成率 -1.55 个百分点", "校园送新用户绝对准时率 完成率 -8.60 个百分点"], "group": "ZA-1-GX", "tier": "优势", "parts": ["经营权订单占比 91.93 × 40% = 36.77", "学生立减招商达成率 45.73 × 20% = 9.15", "送餐上楼订单渗透率 22.42 × 20% = 4.48", "校园送妥投率 105.00 × 10% = 10.50", "校园送新用户绝对准时率 100.00 × 10% = 10.00", "合计 = <b>70.90 分</b>（源表高校过程得分 70.90）"], "rankGap": 17.78}}, "summary": {"n": 2, "avg": 72.99085, "best": ["武陵区", 75.0794, 75.76], "worst": ["衡阳合并经营", 70.9023, 72.22], "passN": 0, "warnN": 0, "worstItem": "送餐上楼订单渗透率", "worstRate": 22.42}, "sim": {"武陵区": {"items": [{"key": "b1", "name": "经营权订单占比", "wt": 40.0, "cur": 97.52, "curScore": 97.52, "max": 120}, {"key": "b2", "name": "学生立减招商达成率", "wt": 20.0, "cur": 54.01, "curScore": 54.01, "max": 120}, {"key": "b3a", "name": "送餐上楼订单渗透率", "wt": 20.0, "cur": 23.84, "curScore": 23.84, "max": 120}, {"key": "b3b", "name": "校园送妥投率", "wt": 10.0, "cur": 98.51, "curScore": 105.0, "max": 120}, {"key": "b3c", "name": "校园送新用户绝对准时率", "wt": 10.0, "cur": 95.59, "curScore": 100.0, "max": 120}], "curScore": 75.08, "curRank": 75.76, "group": "ZA-2-GX", "tier": "均势", "days": 12.0, "monthDays": 31.0, "order": 26.0, "warn": "无"}, "衡阳合并经营": {"items": [{"key": "b1", "name": "经营权订单占比", "wt": 40.0, "cur": 91.93, "curScore": 91.93, "max": 120}, {"key": "b2", "name": "学生立减招商达成率", "wt": 20.0, "cur": 45.73, "curScore": 45.73, "max": 120}, {"key": "b3a", "name": "送餐上楼订单渗透率", "wt": 20.0, "cur": 22.42, "curScore": 22.42, "max": 120}, {"key": "b3b", "name": "校园送妥投率", "wt": 10.0, "cur": 98.9, "curScore": 105.0, "max": 120}, {"key": "b3c", "name": "校园送新用户绝对准时率", "wt": 10.0, "cur": 95.42, "curScore": 100.0, "max": 120}], "curScore": 70.9, "curRank": 72.22, "group": "ZA-1-GX", "tier": "优势", "days": 12.0, "monthDays": 31.0, "order": 27.0, "warn": "无"}}};
+const dateLabels = D.dateLabels;
+const dispIdx = D.dispIdx;
+const cities = D.cities;
+const GRP = D.colors;
+const TREE = D.trendTree || [];
+const collapsed = {};
+const formatted = D.formatted;
+const analysis = D.analysis;
+const summary = D.summary;
+const SIM = D.sim || {};
 
-<div class="rule">
-  <div class="rule-h" style="color:#b91c1c">高校警告规则</div>
-  <div class="rule-b">命中即 1 个警告</div>
-  <div class="rule-warn">
-    <div class="warn-line"><span class="warn-tag">命中条件</span>过程考核得分组内排名 <b>末尾 10%（含）</b></div>
-    <div class="warn-line"><span class="warn-tag ok">豁免机制</span>高校考核过程指标得分 <b>≥ 100 分</b> 可豁免</div>
-    <div class="warn-line"><span class="warn-tag">排名分组</span>30W+ 用 JBP 分组；30W− 用高校重点城市虚拟分组</div>
-  </div>
-</div></div>
-  </div>
+document.getElementById('pgTitle').textContent = D.title;
+document.getElementById('pgSub').textContent = '考核周期: ' + D.period;
+document.getElementById('pgUpd').textContent = '数据更新: ' + D.updateDate;
+document.getElementById('overviewTitle').textContent = '各高校重点区县最新达成总览（' + (dateLabels[0] || '--') + '）';
 
-  <div class="sec">
-    <div class="sec-t">二、高校过程得分总览 <span>达标线 100 分 · 警告线 组内排名 90%</span></div>
-    <div class="cards">
-    <div class="ccard">
-      <div class="cc-head">
-        <div><span class="cc-name">武陵区</span><span class="cc-meta">均势 · 组 ZA-2-GX</span></div>
-        <span class="cc-tier" style="color:#b91c1c;background:#fee2e2">严重滞后</span>
-      </div>
-      <div class="cc-score-row">
-        <div class="cc-score" style="color:#b91c1c">75.08<span class="cc-unit">分</span></div>
-        <div class="cc-side">
-          <div class="kv"><span>组内排名</span><b style="color:#ea580c">75.76%</b></div>
-          <div class="kv"><span>组内名次</span><b>第 26 名</b></div>
-          <div class="kv"><span>高校警告</span><b style="color:#15803d">无</b></div>
-        </div>
-      </div>
-      <div class="cc-bar"><i style="width:75.0794%;background:#b91c1c"></i><u style="left:100%"></u></div>
-      <div class="cc-gap-note">达标线 100 分 · 缺口 <b style="color:#b91c1c">24.92 分</b>　｜　警告线 组内 90% · 还差 <b style="color:#15803d">14.2 个百分点</b></div>
-      <div class="gap-list"><div class="gap-row"><span class="gap-name" style="color:#0f766e">送餐上楼订单渗透率</span><span class="gap-mid">完成率 <b style="color:#b91c1c">23.84%</b> · 权重 20%</span><span class="gap-loss">拖累 <b>15.2</b> 分</span></div><div class="gap-row"><span class="gap-name" style="color:#c2410c">学生立减招商达成率</span><span class="gap-mid">完成率 <b style="color:#b91c1c">54.01%</b> · 权重 20%</span><span class="gap-loss">拖累 <b>9.2</b> 分</span></div><div class="gap-row"><span class="gap-name" style="color:#4f46e5">经营权订单占比</span><span class="gap-mid">完成率 <b style="color:#ca8a04">97.52%</b> · 权重 40%</span><span class="gap-loss">拖累 <b>1.0</b> 分</span></div></div>
-    </div>
-    <div class="ccard">
-      <div class="cc-head">
-        <div><span class="cc-name">衡阳合并经营</span><span class="cc-meta">优势 · 组 ZA-1-GX</span></div>
-        <span class="cc-tier" style="color:#b91c1c;background:#fee2e2">严重滞后</span>
-      </div>
-      <div class="cc-score-row">
-        <div class="cc-score" style="color:#b91c1c">70.90<span class="cc-unit">分</span></div>
-        <div class="cc-side">
-          <div class="kv"><span>组内排名</span><b style="color:#ea580c">72.22%</b></div>
-          <div class="kv"><span>组内名次</span><b>第 27 名</b></div>
-          <div class="kv"><span>高校警告</span><b style="color:#15803d">无</b></div>
-        </div>
-      </div>
-      <div class="cc-bar"><i style="width:70.9023%;background:#b91c1c"></i><u style="left:100%"></u></div>
-      <div class="cc-gap-note">达标线 100 分 · 缺口 <b style="color:#b91c1c">29.10 分</b>　｜　警告线 组内 90% · 还差 <b style="color:#15803d">17.8 个百分点</b></div>
-      <div class="gap-list"><div class="gap-row"><span class="gap-name" style="color:#0f766e">送餐上楼订单渗透率</span><span class="gap-mid">完成率 <b style="color:#b91c1c">22.42%</b> · 权重 20%</span><span class="gap-loss">拖累 <b>15.5</b> 分</span></div><div class="gap-row"><span class="gap-name" style="color:#c2410c">学生立减招商达成率</span><span class="gap-mid">完成率 <b style="color:#b91c1c">45.73%</b> · 权重 20%</span><span class="gap-loss">拖累 <b>10.9</b> 分</span></div><div class="gap-row"><span class="gap-name" style="color:#4f46e5">经营权订单占比</span><span class="gap-mid">完成率 <b style="color:#ca8a04">91.93%</b> · 权重 40%</span><span class="gap-loss">拖累 <b>3.2</b> 分</span></div></div>
-    </div></div>
-  </div>
+let currentCity = cities[0];
+let currentPage = 1;
+let cityMode = 'd';
 
-  <div class="sec">
-    <div class="sec-t">三、分城市 × 指标达成明细 <span>数据截至 2026-10-12</span></div>
-    <div class="panel"><table class="dt"><thead><tr><th class="fix">板块</th><th class="fix2">考核指标</th><th class="wcol">权重</th><th colspan="4" class="city-th">武陵区</th><th colspan="4" class="city-th">衡阳合并经营</th></tr><tr class="h2"><th class="fix"></th><th class="fix2"></th><th class="wcol"></th><th>达成</th><th>目标</th><th>完成率</th><th>得分</th><th>达成</th><th>目标</th><th>完成率</th><th>得分</th></tr></thead><tbody><tr><td class="fix"><span class="dot" style="background:#4f46e5"></span>经营权</td><td class="fix2">经营权订单占比</td><td class="wcol">40%</td><td class="num">83.73</td><td class="num dim">85.86</td><td class="num" style="color:#ca8a04;font-weight:500">97.52%</td><td class="num" style="color:#ea580c;font-weight:700">97.52</td><td class="num">52.69</td><td class="num dim">57.32</td><td class="num" style="color:#ca8a04;font-weight:500">91.93%</td><td class="num" style="color:#ea580c;font-weight:700">91.93</td></tr><tr><td class="fix"><span class="dot" style="background:#c2410c"></span>营销</td><td class="fix2">学生立减招商达成率</td><td class="wcol">20%</td><td class="num">16.20</td><td class="num dim">30.00</td><td class="num" style="color:#b91c1c;font-weight:500">54.01%</td><td class="num" style="color:#b91c1c;font-weight:700">54.01</td><td class="num">13.72</td><td class="num dim">30.00</td><td class="num" style="color:#b91c1c;font-weight:500">45.73%</td><td class="num" style="color:#b91c1c;font-weight:700">45.73</td></tr><tr><td class="fix"><span class="dot" style="background:#0f766e"></span>物流</td><td class="fix2">送餐上楼订单渗透率</td><td class="wcol">20%</td><td class="num">1.70</td><td class="num dim">7.15</td><td class="num" style="color:#b91c1c;font-weight:500">23.84%</td><td class="num" style="color:#b91c1c;font-weight:700">23.84</td><td class="num">1.84</td><td class="num dim">8.21</td><td class="num" style="color:#b91c1c;font-weight:500">22.42%</td><td class="num" style="color:#b91c1c;font-weight:700">22.42</td></tr><tr><td class="fix"><span class="dot" style="background:#0f766e"></span>物流</td><td class="fix2">校园送妥投率</td><td class="wcol">10%</td><td class="num">98.51</td><td class="num dim">100.00</td><td class="num" style="color:#ca8a04;font-weight:500">98.51%</td><td class="num" style="color:#0f766e;font-weight:700">105.00</td><td class="num">98.90</td><td class="num dim">100.00</td><td class="num" style="color:#ca8a04;font-weight:500">98.90%</td><td class="num" style="color:#0f766e;font-weight:700">105.00</td></tr><tr><td class="fix"><span class="dot" style="background:#0f766e"></span>物流</td><td class="fix2">校园送新用户绝对准时率</td><td class="wcol">10%</td><td class="num">95.59</td><td class="num dim">100.00</td><td class="num" style="color:#ca8a04;font-weight:500">95.59%</td><td class="num" style="color:#15803d;font-weight:700">100.00</td><td class="num">95.42</td><td class="num dim">100.00</td><td class="num" style="color:#ca8a04;font-weight:500">95.42%</td><td class="num" style="color:#15803d;font-weight:700">100.00</td></tr><tr class="total-row"><td class="fix">合计</td><td class="fix2">高校过程得分</td><td class="wcol">100%</td><td class="num" colspan="3" style="color:#64748b">加权得分</td><td class="num" style="color:#b91c1c;font-weight:700;font-size:16px">75.08</td><td class="num" colspan="3" style="color:#64748b">加权得分</td><td class="num" style="color:#b91c1c;font-weight:700;font-size:16px">70.90</td></tr><tr class="total-row2"><td class="fix">—</td><td class="fix2">组内排名 / 警告</td><td class="wcol">—</td><td class="num" colspan="3">组内排名 <b style="color:#ea580c">75.76%</b>（第 26 名）</td><td class="num" style="color:#15803d;font-weight:700">无</td><td class="num" colspan="3">组内排名 <b style="color:#ea580c">72.22%</b>（第 27 名）</td><td class="num" style="color:#15803d;font-weight:700">无</td></tr></tbody></table>
-      <div class="legend">
-        <span><i style="background:#15803d"></i>完成率 / 得分 达标</span>
-        <span><i style="background:#ca8a04"></i>接近达标</span>
-        <span><i style="background:#ea580c"></i>未达标</span>
-        <span><i style="background:#b91c1c"></i>严重滞后 / 警告区</span>
-        <span>得分口径：前 3 项 = 完成率×100（封顶 120）；妥投率最高 105；准时率最高 100</span>
-      </div>
-    </div>
-  </div>
+function switchPage(p) {
+  currentPage = p;
+  document.getElementById('pageTab1').classList.toggle('active', p === 1);
+  document.getElementById('pageTab2').classList.toggle('active', p === 2);
+  document.getElementById('page1').style.display = p === 1 ? '' : 'none';
+  document.getElementById('page2').style.display = p === 2 ? '' : 'none';
+  if (p === 1) { renderStatsCards(); renderCitySummaryTable(); renderGroupTable(); renderAllCities(); }
+  else { renderCityDetail(); }
+}
+function switchCity() { currentCity = document.getElementById('citySelect').value; renderCityDetail(); }
+function switchCityMode(m) {
+  cityMode = m;
+  document.getElementById('cityTabD').classList.toggle('active', m === 'd');
+  document.getElementById('cityTabS').classList.toggle('active', m === 's');
+  document.getElementById('cityDetailWrap').style.display = m === 'd' ? '' : 'none';
+  document.getElementById('simPanel').style.display = m === 's' ? '' : 'none';
+  if (m === 's') renderSimPanel();
+}
+function fmtSigned(v) { return (v > 0 ? '+' : '') + (+v || 0).toFixed(2); }
 
-  <div class="sec">
-    <div class="sec-t">四、日维度趋势 <span>（10/11 源报表未留底，日维度为 T-1 可回溯范围内数据）</span></div>
-    <div class="trend-wrap">
-      <div class="panel"><svg viewBox="0 0 660 200" width="100%" style="max-width:660px"><line x1="52" y1="170.0" x2="564" y2="170.0" stroke="#e2e8f0" stroke-width="1"/><text x="45" y="173.0" font-size="10" fill="#94a3b8" text-anchor="end">62.9</text><line x1="52" y1="133.0" x2="564" y2="133.0" stroke="#e2e8f0" stroke-width="1"/><text x="45" y="136.0" font-size="10" fill="#94a3b8" text-anchor="end">66.7</text><line x1="52" y1="96.0" x2="564" y2="96.0" stroke="#e2e8f0" stroke-width="1"/><text x="45" y="99.0" font-size="10" fill="#94a3b8" text-anchor="end">70.5</text><line x1="52" y1="59.0" x2="564" y2="59.0" stroke="#e2e8f0" stroke-width="1"/><text x="45" y="62.0" font-size="10" fill="#94a3b8" text-anchor="end">74.3</text><line x1="52" y1="22.0" x2="564" y2="22.0" stroke="#e2e8f0" stroke-width="1"/><text x="45" y="25.0" font-size="10" fill="#94a3b8" text-anchor="end">78.1</text><polyline fill="none" stroke="#1d4ed8" stroke-width="2.4" stroke-linejoin="round" points="52.0,140.8 308.0,120.6 564.0,51.2"/><circle cx="52.0" cy="140.8" r="4" fill="#fff" stroke="#1d4ed8" stroke-width="2.4"/><text x="52.0" y="131.8" font-size="10.5" font-weight="700" fill="#1d4ed8" text-anchor="middle">65.9</text><circle cx="308.0" cy="120.6" r="4" fill="#fff" stroke="#1d4ed8" stroke-width="2.4"/><text x="308.0" y="111.6" font-size="10.5" font-weight="700" fill="#1d4ed8" text-anchor="middle">67.9</text><circle cx="564.0" cy="51.2" r="4" fill="#fff" stroke="#1d4ed8" stroke-width="2.4"/><text x="564.0" y="42.2" font-size="10.5" font-weight="700" fill="#1d4ed8" text-anchor="middle">75.1</text><text x="572.0" y="55.2" font-size="11.5" font-weight="700" fill="#1d4ed8">武陵区</text><polyline fill="none" stroke="#b45309" stroke-width="2.4" stroke-linejoin="round" points="52.0,134.6 308.0,112.1 564.0,91.8"/><circle cx="52.0" cy="134.6" r="4" fill="#fff" stroke="#b45309" stroke-width="2.4"/><text x="52.0" y="125.6" font-size="10.5" font-weight="700" fill="#b45309" text-anchor="middle">66.5</text><circle cx="308.0" cy="112.1" r="4" fill="#fff" stroke="#b45309" stroke-width="2.4"/><text x="308.0" y="103.1" font-size="10.5" font-weight="700" fill="#b45309" text-anchor="middle">68.8</text><circle cx="564.0" cy="91.8" r="4" fill="#fff" stroke="#b45309" stroke-width="2.4"/><text x="564.0" y="82.8" font-size="10.5" font-weight="700" fill="#b45309" text-anchor="middle">70.9</text><text x="572.0" y="95.8" font-size="11.5" font-weight="700" fill="#b45309">衡阳合并经营</text><text x="52.0" y="192" font-size="11" fill="#64748b" text-anchor="middle">10/9</text><text x="308.0" y="192" font-size="11" fill="#64748b" text-anchor="middle">10/10</text><text x="564.0" y="192" font-size="11" fill="#64748b" text-anchor="middle">10/12</text></svg></div>
-      <div class="panel"><table class="tt"><thead><tr><th>城市</th><th>10/12</th><th>10/10</th><th>10/9</th><th>变化</th></tr></thead><tbody><tr><td class="citycell">武陵区</td><td class="num"><b style="color:#b91c1c">75.08</b><span class="sub">排名 75.76%</span></td><td class="num"><b style="color:#b91c1c">67.94</b><span class="sub">排名 75.76%</span></td><td class="num"><b style="color:#b91c1c">65.86</b><span class="sub">排名 78.79%</span></td><td class="num" style="color:#15803d;font-weight:700">+9.22</td></tr><tr><td class="citycell">衡阳合并经营</td><td class="num"><b style="color:#b91c1c">70.90</b><span class="sub">排名 72.22%</span></td><td class="num"><b style="color:#b91c1c">68.81</b><span class="sub">排名 72.22%</span></td><td class="num"><b style="color:#b91c1c">66.50</b><span class="sub">排名 69.44%</span></td><td class="num" style="color:#15803d;font-weight:700">+4.40</td></tr></tbody></table></div>
-    </div>
-  </div>
+/* ───────── Page1: 汇总卡 ───────── */
+function renderStatsCards() {
+  const s = summary;
+  const avgCol = s.avg >= 100 ? '#16a34a' : s.avg >= 90 ? '#f59e0b' : '#dc2626';
+  document.getElementById('statsCards').innerHTML =
+    '<div class="stat-card" style="border-left-color:#0f766e;background:#f0fdfa">' +
+      '<div class="sc-label">高校重点区县（参与考核）</div>' +
+      '<div class="sc-value" style="color:#0f766e">' + s.n + ' 个</div>' +
+      '<div class="sc-detail">平均高校过程得分 <b style="color:' + avgCol + '">' + s.avg.toFixed(2) + '</b></div></div>' +
+    '<div class="stat-card" style="border-left-color:#16a34a">' +
+      '<div class="sc-label">达标城市（得分 ≥100）</div>' +
+      '<div class="sc-value" style="color:#16a34a">' + s.passN + ' 个</div>' +
+      '<div class="sc-detail">' + (s.passN ? '' : '暂无城市达标，最高 ' + s.best[0] + ' ' + s.best[1].toFixed(2) + ' 分') + '</div></div>' +
+    '<div class="stat-card" style="border-left-color:#dc2626">' +
+      '<div class="sc-label">未达标城市</div>' +
+      '<div class="sc-value" style="color:#dc2626">' + (s.n - s.passN) + ' 个</div>' +
+      '<div class="sc-detail">最低 ' + s.worst[0] + ' ' + s.worst[1].toFixed(2) + ' 分（距达标 ' + (100 - s.worst[1]).toFixed(1) + ' 分）</div></div>' +
+    '<div class="stat-card" style="border-left-color:#f59e0b">' +
+      '<div class="sc-label">有高校警告城市</div>' +
+      '<div class="sc-value" style="color:#f59e0b">' + s.warnN + ' 个</div>' +
+      '<div class="sc-detail">警告 = 组内排名末尾 10%（含）；得分 ≥100 豁免</div></div>' +
+    '<div class="stat-card" style="border-left-color:#6b7280">' +
+      '<div class="sc-label">最大卡点指标</div>' +
+      '<div class="sc-value" style="color:#dc2626;font-size:16px">' + s.worstItem + '</div>' +
+      '<div class="sc-detail">跨城最低完成率 <b>' + s.worstRate.toFixed(2) + '%</b></div></div>';
+}
 
-  <div class="foot">
-    数据源：城市月度考核--2610起-高校过程（ARK 数据集 70633）　｜　衡阳合并经营行已按 4 区县归一（÷4）还原为可比口径<br>
-    生成时间 2026-10-13 15:08
-  </div>
+/* ───────── Page1: 城市汇总表 ───────── */
+const SUM_COLS = [
+  {key:'hs_score', label:'高校过程得分'},
+  {key:'hs_rank',  label:'组内排名'},
+  {key:'hs_gap',   label:'距达标缺口'},
+  {key:'b1_score', label:'经营权订单占比'},
+  {key:'b2_score', label:'学生立减招商'},
+  {key:'b3a_score',label:'送餐上楼渗透'},
+  {key:'b3b_score',label:'校园送妥投'},
+  {key:'b3c_score',label:'校园送准时'}
+];
 
-</div>
+function renderCitySummaryTable() {
+  const LI = 0;
+  let html = '<div class="cst-wrap"><table class="cst-table"><thead><tr><th>城市</th><th>警告</th><th>风险</th>';
+  SUM_COLS.forEach(function(c){ html += '<th>' + c.label + '</th>'; });
+  html += '</tr></thead><tbody>';
+  cities.forEach(function(city) {
+    const d = formatted[city];
+    if (!d) return;
+    const a = analysis[city] || {};
+    html += '<tr><td>' + city + '</td>';
+    const warnOk = (a.warn === '无' || !a.warn);
+    html += '<td>' + (warnOk ? '<span class="cst-tag pos">正常</span>' : '<span class="cst-tag severe">' + a.warn + '</span>') + '</td>';
+    const rg = a.rankGap;
+    const rgTxt = rg > 15 ? '<span class="cst-tag pos">安全</span>' : rg > 5 ? '<span class="cst-tag warn">关注</span>' : '<span class="cst-tag neg">警告区邻近</span>';
+    html += '<td title="距组内排名末尾10%(90%)警告线还差 ' + rg.toFixed(2) + ' 个百分点">' + rgTxt + '</td>';
+    SUM_COLS.forEach(function(c) {
+      const it = d[c.key];
+      if (!it) { html += '<td>--</td>'; return; }
+      const fw = it.bolds[LI] ? 'font-weight:800' : 'font-weight:600';
+      html += '<td style="background:' + it.colors[LI] + ';' + fw + '">' + it.values[LI] + '</td>';
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table></div>';
+  document.getElementById('citySummaryTable').innerHTML = html;
+}
+
+/* ───────── Page1: 板块达标明细 ───────── */
+const GTABS = D.groupTables || [];
+let gMode = 'biz';
+function switchGroup(m) {
+  gMode = m;
+  [['biz','Biz'],['mkt','Mkt'],['logi','Logi']].forEach(function(g) {
+    const b = document.getElementById('gTab' + g[1]);
+    if (b) b.className = 'page-tab' + (g[0] === gMode ? ' active' : '');
+  });
+  renderGroupTable();
+}
+function renderGroupTable() {
+  const wrap = document.getElementById('groupTableWrap');
+  if (!wrap) return;
+  const tab = GTABS.filter(function(t) { return t.id === gMode; })[0];
+  if (!tab) { wrap.innerHTML = ''; return; }
+  const LI = 0;
+  const gd = document.getElementById('groupTableDate');
+  if (gd) gd.textContent = '（' + (dateLabels[LI] || '--') + ' · 行=城市，色阶=达成好坏）';
+  let html = '<div class="cst-wrap"><table class="cst-table"><thead><tr><th style="position:sticky;left:0;background:#f0f2f5;z-index:1">城市</th>';
+  tab.cols.forEach(function(c) { html += '<th>' + c.label + '</th>'; });
+  html += '</tr></thead><tbody>';
+  cities.forEach(function(city) {
+    const d = formatted[city];
+    if (!d) return;
+    html += '<tr><td style="position:sticky;left:0;background:#fff;font-weight:700;z-index:1">' + city + '</td>';
+    tab.cols.forEach(function(c) {
+      const it = d[c.key];
+      if (!it) { html += '<td>--</td>'; return; }
+      const fw = it.bolds[LI] ? 'font-weight:800' : 'font-weight:600';
+      html += '<td style="background:' + it.colors[LI] + ';' + fw + ';white-space:nowrap" title="' + c.label + '">' + it.values[LI] + '</td>';
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table></div>';
+  wrap.innerHTML = html;
+}
+
+/* ───────── 三级趋势树 ───────── */
+function trendCell(city, key, i, title) {
+  const it = formatted[city][key];
+  if (!it) return '<td class="metric-cell">--</td>';
+  const bg = it.colors[i] || '#fff';
+  const fw = it.bolds[i] ? 'font-weight:800' : 'font-weight:600';
+  return '<td class="metric-cell" style="background-color:' + bg + ';' + fw + '" title="' + (title || '') + '">' + it.values[i] + '</td>';
+}
+function buildTrendTable(city) {
+  const d = formatted[city];
+  if (!d) return '<div style="padding:12px;color:#999">无数据</div>';
+  let html = '<div class="flat-section"><table class="metric-table trend-tree"><thead><tr><th class="metric-name">指标</th>';
+  dispIdx.forEach(function(i){ html += '<th>' + dateLabels[i] + '</th>'; });
+  html += '</tr></thead><tbody>';
+  TREE.forEach(function(t, ti) {
+    const isCol = !!collapsed[city + '|' + ti];
+    const hasGroups = (t.groups && t.groups.length) || (t.flats && t.flats.length);
+    html += '<tr class="tt-l1" onclick="toggleTrend(\'' + city + '\',' + ti + ')">' +
+            '<td class="metric-name" style="border-left:6px solid ' + (GRP[t.grp]||'#0f766e') + '">' +
+            '<span class="tt-caret">' + (hasGroups ? (isCol ? '▸' : '▾') : '·') + '</span>' + t.name + '</td>';
+    dispIdx.forEach(function(i){ html += trendCell(city, t.score, i, t.name); });
+    html += '</tr>';
+    if (isCol) return;
+    (t.flats || []).forEach(function(f) {
+      html += '<tr class="tt-l1 tt-flat">' +
+              '<td class="metric-name" style="border-left:6px solid ' + (GRP[t.grp]||'#0f766e') + '">' +
+              '<span class="tt-caret sp"></span>' + f.name + '</td>';
+      dispIdx.forEach(function(i){ html += trendCell(city, f.score, i, f.name); });
+      html += '</tr>';
+    });
+    (t.groups || []).forEach(function(g) {
+      html += '<tr class="tt-l2"><td class="metric-name"><span class="tt-caret sp"></span>' + g.name + '</td>';
+      dispIdx.forEach(function(i){ html += g.score ? trendCell(city, g.score, i, g.name) : '<td></td>'; });
+      html += '</tr>';
+      g.rows.forEach(function(r) {
+        html += '<tr class="tt-l3"><td class="metric-name' + (r.bold ? ' tt-bold' : '') + '">' + r.label + '</td>';
+        dispIdx.forEach(function(i){ html += trendCell(city, r.key, i, r.label); });
+        html += '</tr>';
+      });
+    });
+  });
+  html += '</tbody></table></div>';
+  return html;
+}
+function toggleTrend(city, ti) {
+  const k = city + '|' + ti;
+  collapsed[k] = !collapsed[k];
+  const t = document.getElementById('allCitiesTrend');
+  if (t) t.innerHTML = buildAllCities();
+  const m = document.getElementById('metricTree');
+  if (m) m.innerHTML = buildTrendTable(currentCity);
+}
+function expandAllTrend(col) {
+  cities.forEach(function(city) {
+    TREE.forEach(function(t, ti) { collapsed[city + '|' + ti] = col; });
+  });
+  const t = document.getElementById('allCitiesTrend');
+  if (t) t.innerHTML = buildAllCities();
+  const m = document.getElementById('metricTree');
+  if (m) m.innerHTML = buildTrendTable(currentCity);
+}
+function statusColor(s) { return s === '达标' ? '#16a34a' : s === '接近达标' ? '#f59e0b' : s === '未达标' ? '#dc2626' : '#991b1b'; }
+function buildAllCities() {
+  let html = '';
+  cities.forEach(function(city) {
+    const a = analysis[city] || {status:'未知', score:0, rank:0};
+    const sc = statusColor(a.status);
+    html += '<div class="city-trend-block">';
+    html += '<div class="city-trend-header" style="background:' + sc + '">' +
+            '<span>' + city + ' <span style="font-weight:400;opacity:.9;font-size:12px">' +
+            a.status + ' · 得分 ' + a.score.toFixed(2) + ' · 组内排名 ' + a.rank.toFixed(2) + '%（第 ' + a.order + ' 名）</span>' +
+            (a.warns && a.warns.length ? '<span class="cth-status" style="background:rgba(245,158,11,.9)">⚠ ' + a.warns.length + ' 项警告</span>'
+                                       : '<span class="cth-status">无警告 · 距警告线 ' + a.rankGap.toFixed(1) + ' 个百分点</span>') +
+            '</span><span style="font-size:12px;opacity:.9">群组 ' + a.group + ' · ' + a.tier + '</span></div>';
+    html += '<div>' + buildTrendTable(city) + '</div>';
+    html += '</div>';
+  });
+  return html;
+}
+function renderAllCities() { document.getElementById('allCitiesTrend').innerHTML = buildAllCities(); }
+
+/* ───────── Page2: 分城市 ───────── */
+function renderCityDetail() {
+  const sel = document.getElementById('citySelect');
+  if (sel.options.length !== cities.length) {
+    sel.innerHTML = cities.map(function(c){ return '<option value="' + c + '">' + c + '</option>'; }).join('');
+    sel.value = currentCity;
+  }
+  document.getElementById('citySectionTitle').textContent = '· ' + currentCity + (cityMode === 's' ? ' 得分测算' : ' 各板块明细');
+  renderAnalysis();
+  document.getElementById('metricTree').innerHTML = buildTrendTable(currentCity);
+  if (cityMode === 's') renderSimPanel();
+}
+function renderAnalysis() {
+  const a = analysis[currentCity];
+  const el = document.getElementById('analysisPanel');
+  if (!a) { el.innerHTML = ''; return; }
+  const sc = a.status === '达标' ? 'pos' : a.status === '接近达标' ? 'zero' : 'neg';
+
+  let weakHtml = a.weak.length
+    ? a.weak.map(function(w, i){ return '<div class="ap-item ' + (i===0?'highlight':'') + '">' + w.name + '：' + w.score + ' 分 · 权重 ' + w.weight + '% → 满权重可加综合 <b>' + w.potential + '</b> 分</div>'; }).join('')
+    : '<div class="ap-item good">全部细项得分均已 ≥100</div>';
+
+  let behindHtml = a.behind.length
+    ? a.behind.map(function(b){ return '<div class="ap-item trend">' + b.name + '：完成率 ' + b.val + '%（&lt;90%）</div>'; }).join('')
+    : '<div class="ap-item good">各细项完成率均 ≥90%</div>';
+
+  let warnHtml = a.warns.length
+    ? a.warns.map(function(w){ return '<div class="ap-item highlight">⚠️ ' + w + '</div>'; }).join('')
+    : '<div class="ap-item good">无高校警告</div>';
+  warnHtml += '<div class="ap-item">组内排名 ' + a.rank.toFixed(2) + '% · 距末尾10%警告线还有 <b>' + a.rankGap.toFixed(2) + '</b> 个百分点</div>';
+  warnHtml += '<div class="ap-item">豁免条件：过程得分 ≥100 分（当前 ' + a.score.toFixed(2) + ' 分）</div>';
+
+  let trendHtml = a.trends.length
+    ? a.trends.map(function(t){ return '<div class="ap-item trend">' + t + '</div>'; }).join('')
+    : '<div class="ap-item">数据仅 1 天，趋势待累积</div>';
+
+  el.innerHTML =
+    '<div class="ap-header"><span class="ap-status ' + sc + '">' + a.status + '</span>' +
+    '<span class="ap-title">' + currentCity + ' · 诊断分析</span>' +
+    '<span style="font-size:11px;color:#999;margin-left:auto">数据日期 ' + D.updateDate + ' ｜ 群组 ' + a.group + ' ｜ ' + a.tier + '</span></div>' +
+    '<div class="ap-grid">' +
+      '<div><div class="ap-section-title">板块 / 指标弱项（按可提升综合分排序）</div>' + weakHtml + '</div>' +
+      '<div><div class="ap-section-title">完成率落后项（&lt;90%）</div>' + behindHtml + '</div>' +
+      '<div><div class="ap-section-title">警告 / 红线</div>' + warnHtml + '</div>' +
+      '<div><div class="ap-section-title">环比趋势</div>' + trendHtml + '</div>' +
+    '</div>' +
+    '<div class="inc-parts"><b>得分构成（可校验口径）</b><br>' + a.parts.join('<br>') + '</div>';
+}
+
+/* ───────── Page2: 得分测算 ───────── */
+const LADDER_TOU = [[98.5, 105], [98.2, 100], [97.5, 90], [0, 80]];
+const LADDER_OT  = [[92, 100], [90, 90], [0, 80]];
+function scoreOf(key, rate) {
+  if (key === 'b3b') { for (var i=0;i<LADDER_TOU.length;i++) if (rate >= LADDER_TOU[i][0]) return LADDER_TOU[i][1]; }
+  if (key === 'b3c') { for (var j=0;j<LADDER_OT.length;j++) if (rate >= LADDER_OT[j][0]) return LADDER_OT[j][1]; }
+  return Math.min(rate, 120);
+}
+function snapItem(label, value, cls, sub) {
+  return '<div class="sim-snap-item"><div class="ss-label">' + label + '</div><div class="ss-value ' + (cls||'') + '">' + value + '</div>' + (sub ? '<div class="ss-sub">' + sub + '</div>' : '') + '</div>';
+}
+function reasonRow(name, val, why) {
+  return '<div class="reason-row"><span class="rs-name">' + name + '</span><span class="rs-val">' + val + '</span><span class="rs-why">' + why + '</span></div>';
+}
+function renderSimPanel() {
+  const sim = SIM[currentCity];
+  const el = document.getElementById('simPanel');
+  if (!sim) { el.innerHTML = '<div style="padding:12px;color:#999">该城市无测算数据</div>'; return; }
+  let snap = '<div class="sim-snapshot">' +
+    snapItem('高校过程得分', sim.curScore.toFixed(2)) +
+    snapItem('组内排名', sim.curRank.toFixed(2) + '%') +
+    snapItem('组内名次', '第 ' + sim.order + ' 名') +
+    snapItem('群组 / 分层', sim.group + ' · ' + sim.tier) +
+    snapItem('距达标线(100)', (100 - sim.curScore).toFixed(2) + ' 分') +
+    snapItem('高校警告', sim.warn) +
+    '</div>';
+  let form = '<div class="sim-form" style="grid-template-columns:1fr">' +
+    '<div class="sim-group"><div class="sim-group-title">拖动滑杆模拟各细项「完成率」→ 自动重算高校过程得分（权重固定，来自考核方案）</div>';
+  sim.items.forEach(function(it, idx) {
+    form += '<div class="sim-row"><label>' + it.name + '（权重 ' + it.wt + '%）</label>' +
+      '<span class="sim-current">当前 ' + it.cur.toFixed(2) + '% · 得分 ' + it.curScore.toFixed(2) + '</span>' +
+      '<input type="range" min="0" max="120" step="0.1" value="' + it.cur + '" class="sim-slider" id="slider_' + idx + '" oninput="onSimChange(' + idx + ')">' +
+      '<input type="number" min="0" max="120" step="0.1" value="' + it.cur + '" id="input_' + idx + '" oninput="onSimInput(' + idx + ')"></div>';
+  });
+  form += '</div></div>';
+  let result = '<div class="sim-result"><div class="sim-result-grid">' +
+    '<div class="sim-result-item"><div class="sr-label">预估高校过程得分</div><div class="sr-value" id="simScore">--</div><div class="sr-sub" id="simScoreDelta"></div></div>' +
+    '<div class="sim-result-item"><div class="sr-label">较当前变化</div><div class="sr-value" id="simDelta">--</div><div class="sr-sub">对比 ' + sim.curScore.toFixed(2) + ' 分</div></div>' +
+    '<div class="sim-result-item"><div class="sr-label">距达标线(100)缺口</div><div class="sr-value" id="simGap">--</div><div class="sr-sub">达标即豁免警告</div></div>' +
+    '<div class="sim-result-item"><div class="sr-label">当前组内排名</div><div class="sr-value">' + sim.curRank.toFixed(2) + '%</div><div class="sr-sub">第 ' + sim.order + ' 名（排名需组内其他城市数据，不随模拟变化）</div></div>' +
+    '</div><div id="simBreakdown" class="inc-parts" style="margin-top:12px"></div>' +
+    '<div class="sim-verdict" id="simVerdict"></div></div>';
+  let ctx = '<div class="sim-form" style="margin-top:14px"><div class="sim-group">' +
+    '<div class="sim-group-title">赋分规则（测算依据）</div><div class="reason-table">' +
+    reasonRow('经营权 / 学生立减 / 送餐上楼', '完成率 × 100', '封顶 120 分（权重 40% / 20% / 20%）') +
+    reasonRow('校园送妥投率', '阶梯赋分', '&lt;97.5% → 80 ／ 97.5~98.2% → 90 ／ 98.2~98.5% → 100 ／ ≥98.5% → 105（权重 10%）') +
+    reasonRow('校园送新用户准时率', '阶梯赋分', '&lt;90% → 80 ／ 90~92% → 90 ／ ≥92% → 100（权重 10%）') +
+    reasonRow('高校警告', '组内排名末尾 10%（含）', '过程得分 ≥100 分可豁免') +
+    '</div></div><div class="sim-group"><div class="sim-group-title">说明</div>' +
+    '<div class="reason-table"><div class="reason-row"><span class="rs-why">本测算用于回答「某项完成率提到多少，高校过程得分能到几分」；' +
+    '排名为组内相对位次，需全组城市数据才可推演，故不随滑杆变化。妥投率与准时率为阶梯赋分，滑杆跨过档位线时得分会跳变。</span></div></div></div></div>';
+  el.innerHTML = snap + form + result + ctx;
+  calcSim();
+}
+function onSimChange(idx) {
+  const v = parseFloat(document.getElementById('slider_' + idx).value);
+  document.getElementById('input_' + idx).value = v;
+  calcSim();
+}
+function onSimInput(idx) {
+  let v = parseFloat(document.getElementById('input_' + idx).value);
+  if (isNaN(v)) return;
+  v = Math.max(0, Math.min(120, v));
+  document.getElementById('slider_' + idx).value = v;
+  calcSim();
+}
+function calcSim() {
+  const sim = SIM[currentCity];
+  let total = 0, lines = [];
+  sim.items.forEach(function(it, idx) {
+    const sl = document.getElementById('slider_' + idx);
+    const rate = sl ? parseFloat(sl.value) : it.cur;
+    const s = scoreOf(it.key, rate);
+    const contrib = s * it.wt / 100;
+    total += contrib;
+    const chg = rate - it.cur;
+    const tag = it.key === 'b3b' || it.key === 'b3c' ? '（阶梯）' : '';
+    lines.push(it.name + '：完成率 ' + rate.toFixed(2) + '%' + (Math.abs(chg) > 0.05 ? '（' + (chg>0?'+':'') + chg.toFixed(2) + '）' : '') +
+      ' → 得分 ' + s + ' × ' + it.wt + '% = ' + contrib.toFixed(2) + tag);
+  });
+  const delta = total - sim.curScore;
+  const gap = 100 - total;
+  const set = function(id, txt, cls) { const e = document.getElementById(id); if (e) e.textContent = txt; };
+  set('simScore', total.toFixed(2));
+  set('simDelta', (delta >= 0 ? '+' : '') + delta.toFixed(2));
+  set('simGap', gap > 0 ? gap.toFixed(2) : '已达标');
+  const dEl = document.getElementById('simScoreDelta');
+  if (dEl) { dEl.textContent = '当前 ' + sim.curScore.toFixed(2) + ' 分'; }
+  const brEl = document.getElementById('simBreakdown');
+  if (brEl) brEl.innerHTML = '<b>测算明细</b><br>' + lines.join('<br>') + '<br>合计 = <b>' + total.toFixed(2) + ' 分</b>';
+  const vd = document.getElementById('simVerdict');
+  if (vd) {
+    if (total >= 100) { vd.className = 'sim-verdict pos'; vd.innerHTML = '<span class="vd-tag">已达标</span>得分 <b>' + total.toFixed(2) + '</b> ≥100，可豁免高校警告；较当前 ' + (delta>=0?'+':'') + delta.toFixed(2) + ' 分'; }
+    else if (total >= 90) { vd.className = 'sim-verdict'; vd.innerHTML = '<span class="vd-tag">接近达标</span>得分 <b>' + total.toFixed(2) + '</b>，距达标线还差 <b>' + gap.toFixed(2) + '</b> 分'; }
+    else { vd.className = 'sim-verdict neg'; vd.innerHTML = '<span class="vd-tag">未达标</span>得分 <b>' + total.toFixed(2) + '</b>，距达标线还差 <b>' + gap.toFixed(2) + '</b> 分；优先补「送餐上楼订单渗透率」与「学生立减招商」两项（合计权重 40%）'; }
+  }
+}
+
+renderStatsCards();
+renderCitySummaryTable();
+renderGroupTable();
+renderAllCities();
+</script>
 </body>
 </html>
